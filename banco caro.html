@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bài tập 02</title>
+</head>
+<body>
+<p>SỐ HÀNG:</p>
+<input type="text" id="sohang"><br>
+<P>SỐ CỘT</P>
+<input type="text" id="socot"><br>
+<button type="button" onclick="taobang()">TẠO BẢNG</button><br>
+<hr>
+<p id="carogame"></p>
+<script>
+
+    let banCo=[];
+    let data='';
+    let soHang;
+    let soCot;
+    function taobang() {
+        soHang=parseInt(document.getElementById("sohang").value);
+        soCot=parseInt(document.getElementById("socot").value);
+        for (let i=0;i<soHang;i++) {
+            banCo[i]=[];
+            data+="<br>";
+            for (let j=0;j<soCot;j++) {
+                banCo[i][j] =0;
+                data+=banCo[i][j]+"&nbsp;&nbsp";
+            }
+        }
+        data+="<br><br><input type='button' onclick='fight()' value='click'><br><br>";
+        document.getElementById("carogame").innerHTML=data;
+    }
+    function fight() {
+        let x=parseInt(prompt("hàng"));
+        let y=parseInt(prompt("cột"));
+        banCo[x][y]="x";
+        data="";
+        for (let i=0;i<soHang;i++) {
+            data+="<br>";
+            for (let j=0;j<soCot;j++) {
+                data+=banCo[i][j]+"&nbsp;&nbsp";
+            }
+        }
+        data+="<br><br><input type='button' onclick='fight()' value='click'><br><br>";
+        document.getElementById("carogame").innerHTML=data;
+    }
+
+
+
+</script>
+
+</body>
+</html>
